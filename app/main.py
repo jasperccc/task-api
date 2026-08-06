@@ -35,6 +35,13 @@ SessionDependency = Annotated[
 ]
 
 
+@app.get("/")
+async def root() -> dict[str, str]:
+    """返回服务基本信息。"""
+
+    return {"service": "task-api"}
+
+
 @app.get("/health")
 async def health() -> dict[str, str]:
     return {"status": "ok"}

@@ -18,3 +18,15 @@ async def test_health() -> None:
 
     assert response.status_code == 200
     assert response.json() == {"status": "ok"}
+
+
+@pytest.mark.asyncio
+async def test_root_returns_service_name(
+    client: AsyncClient,
+) -> None:
+    """根路径应该返回服务名称。"""
+
+    response = await client.get("/")
+
+    assert response.status_code == 200
+    assert response.json() == {"service": "task-api"}

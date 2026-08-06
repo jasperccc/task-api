@@ -1,7 +1,7 @@
 services:
   api:
     build: .
-    image: task-api:0.1.0
+    image: task-api:0.2.0
     environment:
       DATABASE_URL: "postgresql+asyncpg://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}"
     ports:
